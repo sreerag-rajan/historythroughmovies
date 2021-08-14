@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<section>
+		<h2> {{ eachtheme.theme.upper }}</h2>
+
+		<p> {{ eachtheme.description }}</p>
+	</section>
+	<table border="1">
+		<tr>
+			<!-- <th> Sr. No. </th> -->
+			<th> Title </th>
+			<th> Year </th>
+			<th> Director </th>
+			<th> Language </th>
+			<th> Themes </th>
+			<th> Category </th>
+			<th> Length </th>
+			<th> Time Period </th>
+			<th> Country </th>
+
+		</tr>
+		{% for movie in Movies %}
+		<tr>
+			<!-- <td>{{movie.id}}</td> -->
+			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
+			<td>{{movie.year}}</td>
+			<td>{{movie.director.all|join:", "}}</td>
+			<td>{{movie.language.all|join:", "}}</td>
+			<td>{{movie.theme.all|join:", "}}</td>
+			<td>{{movie.category.all|join:", "}}</td>
+			<td>{{movie.lenght}}</td>
+			<td>{{movie.time_period.all|join:", "}}</td>
+			<td>{{movie.country.all|join:", "}}</td>
+			<td>{{movie.accuracy}}</td>
+			<td>{{movie.remarks}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</main>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<main>
+	<h2> All Movies </h2>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<!-- <span class="export">
+		<form action="/export">
+			<label>Export as .csv File</label>
+			<input type='submit' value="Export">
+		</form>
+	</span> -->
+
+	<section>
+		<p>
+		<form action="/allmovies/title">
+			<input type="submit" value="Order by Title">
+		</form>
+		<form action="/allmovies/year">
+			<input type="submit" value="Order by Year">
+		</form>
+
+		<form action="/allmovies/director">
+			<input type="submit" value="Order by Director">
+		</form>
+		<form action="/allmovies/language">
+			<input type="submit" value="Order by Language">
+		</form>
+		<form action="/allmovies/category">
+			<input type="submit" value="Order by Category">
+		</form>
+		<form action="/allmovies/lenght">
+			<input type="submit" value="Order by Length">
+		</form>
+		<form action="/allmovies/country">
+			<input type="submit" value="Order by Country">
+		</form>
+		</p>
+	</section>
+
+
+
+	<table border="1">
+		<tr>
+			<!-- <th> Sr. No. </th> -->
+			<th> Title </th>
+			<th> Year </th>
+			<th> Director </th>
+			<th> Language </th>
+			<th> Themes </th>
+			<th> Category </th>
+			<th> Length </th>
+			<th> Time Period </th>
+			<th> Country </th>
+		</tr>
+		{% for movie in all_movies %}
+		<tr>
+			<!-- <td>{{movie.id}}</td> -->
+			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
+			<td>{{movie.year}}</td>
+			<td>{{movie.director.all|join:", "}}</td>
+			<td>{{movie.language.all|join:", "}}</td>
+			<td>{{movie.theme.all|join:", "}}</td>
+			<td>{{movie.category.all|join:", "}}</td>
+			<td>{{movie.lenght}}</td>
+			<td>{{movie.time_period.all|join:", "}}</td>
+			<td>{{movie.country.all|join:", "}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</main>
+{% endblock %}

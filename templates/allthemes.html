@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+
+<h2>ALL THEMES</h2>
+
+<ul class="alltheme">
+	{% for theme in allthemes %}
+	<a href=theme_{{theme.slug}}>
+		<li>{{theme.theme}}</li>
+	</a>
+	{% endfor %}
+</ul>
+
+{% endblock %}

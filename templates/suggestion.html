@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <h2>SUGGESTONS</h2>
+  <p>This page is to get suggestions from you regarding the movies that should be in the list. We are amatuars, albiet
+    enthusiastic ones, who seek to create a list of movies that give a glimpse of history. If you know of movies that
+    are missing and feel should be included please fill the form below.</p>
+
+  <p>*Only Title is mandatory. Filling the other fields is recommended especially the year as there are movies with same
+    name released in different years.</p>
+  <section id="suggestionform">
+    <form method='POST'> {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <span class="submit">
+        <input type='submit' value='Submit' />
+      </span>
+    </form>
+  </section>
+</main>
+
+{% endblock %}
