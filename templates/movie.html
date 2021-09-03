@@ -4,9 +4,10 @@
 <main id="moviepage">
     <h2 id="movietitle">{{Movie.title}}</h2>
 
+    <div>
     <section id="movieinfo">
 
-        <table>
+        <table class="movietable">
             <tr>
                 <th>YEAR OF RELEASE</th>
                 <td>{{Movie.year}}</td>
@@ -44,6 +45,7 @@
     <section id="poster">
         <img src="{{Movie.poster.url}}" alt="film Poster">
     </section>
+</div>
 
     <section id="movietext">
         <p>{{Movie.para1}}</p>

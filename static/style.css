@@ -27,9 +27,25 @@ p{
 	font-family: 'Dosis', sans-serif;
 	color: #00162b;
 }
+.table{
+	display: flex;
+	vertical-align: top;
+	flex-wrap: wrap;
+}
+
 table{
-	width: 100%;
+	width: 200px;
+	margin: 2%;
 	margin-bottom: 5%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+table img{
+	width: 200px;
+	height: 300px;
+	align-content: center;
+
 }
 
 th{
@@ -45,6 +61,7 @@ td{
 	padding: 2px;
 	text-align: center;
 	font-family: 'Dosis', sans-serif;
+	align-content: center;
 }
 td a{
 	color: darkred;
@@ -148,15 +165,7 @@ h1:hover{
 	flex-shrink: 1;
 }
 
-.navbar{
-	width:100%;
-	height: 100%;
-	background-color: #001626;
-	display: block;
-	justify-content: center;
-	margin-top: 1%;
 
-}
 .navbar{
 	width:100%;
 	height: 100%;
@@ -166,6 +175,9 @@ h1:hover{
 	justify-content: center;
 	align-content: center;
 	margin-top: 1%;
+	position: -webkit-sticky;
+	position:  sticky;
+	top:  0;
 
 }
 .navbar a{
@@ -415,7 +427,7 @@ svg path.visited{
 /* ========================================================================================================= */
 /* --------------------------------------TIME PERIOD PAGE------------------------------------------------- */
 
-#themesnav h3{
+/*#themesnav h3{
 	font-size: 1em;
 	font-family: cursive;
 }
@@ -535,7 +547,7 @@ svg path.visited{
 	transform:  scale(105%);
 	transition: 2s;
 }
-
+*/
 
 
 
@@ -587,14 +599,23 @@ svg path.visited{
 /*=======================================================================================================*/
 
 /*---------------------------------- Movie Info Page ---------------------------------------------*/
+#moviepage{
+	display: flex;
+	flex-direction: column;
+}
+#moviepage div{
+	display: flex;
+}
 
 #movietitle{
+	display: block;
 	text-align: center;
 	padding: 2%;
 	background-color: #f3fc88;
 	color: #001626;
 	border-radius: 25%;
-	border: 1px dotted whitesmoke
+	border: 1px dotted whitesmoke;
+	flex-direction: row;
 }
 #movieinfo{
 	width: 60%;
@@ -603,14 +624,19 @@ svg path.visited{
 	margin-top: 10%;
 
 }
-#movieinfo table{
-	width: 80%;
+.movietable{
+	width: 100%;
+	display: inline-block;
+	flex-direction: row;
 }
+
 #movieinfo th{
+	width: 250px;
 	padding: 2%;
 	background-color: rgb(178, 199, 245);
 }
 #movieinfo td{
+	width:  250px;
 	font-weight: bold;
 	background-color: rgb(225, 234, 252);
 }
@@ -651,22 +677,7 @@ svg path.visited{
 	font-size: 1em;
 	width: 90%;
 }
-#remarks{
-	width: 45%;
-	display: inline-block;
-	background-color: rgb(235, 159, 159);
-	border-radius: 10%;
-	margin-right: 2%;
-	vertical-align: top;
-}
-#accuracy{
-	width: 45%;
-	display: inline-block;
-	background-color: rgba(161, 219, 214, 0.815);
-	vertical-align: top;
-	border-radius: 10%;
-	margin-left: 2%;
-}
+
 /*================================================================================================*/
 
 
@@ -678,29 +689,14 @@ svg path.visited{
 	}
 
 }
-/*@media (max-width: 1115px) {
-	#homenav{
-		margin-left: 0%;
-	}
 
-}
-@media screen and (max-width: 1028px) {
-	#navbar li{
-		font-size: small;
+@media (max-width:  500px){
+	#moviepage div{
+		flex-direction: row-reverse;
 	}
-
 }
 
-
-
-
-/* @media screen and (max-width: 1028px) {
-	#navbar li{
-		margin-left: 1.5%;
-		margin-right: 1.5%;
-	}
-
-} */
+ 
 
 
 

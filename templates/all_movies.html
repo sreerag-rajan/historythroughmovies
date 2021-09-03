@@ -41,9 +41,9 @@
 
 
 
-	<table border="1">
-		<tr>
-			<!-- <th> Sr. No. </th> -->
+	
+		<!-- <tr>
+
 			<th> Title </th>
 			<th> Year </th>
 			<th> Director </th>
@@ -53,21 +53,22 @@
 			<th> Length </th>
 			<th> Time Period </th>
 			<th> Country </th>
-		</tr>
+		</tr> -->
+	<section class="table">
 		{% for movie in all_movies %}
-		<tr>
-			<!-- <td>{{movie.id}}</td> -->
-			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
-			<td>{{movie.year}}</td>
-			<td>{{movie.director.all|join:", "}}</td>
-			<td>{{movie.language.all|join:", "}}</td>
-			<td>{{movie.theme.all|join:", "}}</td>
-			<td>{{movie.category.all|join:", "}}</td>
-			<td>{{movie.lenght}}</td>
-			<td>{{movie.time_period.all|join:", "}}</td>
-			<td>{{movie.country.all|join:", "}}</td>
-		</tr>
+		<table>
+		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
+		<tr><td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td></tr>
+		<tr>	<td>{{movie.year}}</td></tr>
+		<tr>	<td>{{movie.director.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.language.all|join:", "}}</td><tr>
+		<tr>	<td>{{movie.theme.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.category.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.lenght}}</td></tr>
+		<tr>	<td>{{movie.time_period.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.country.all|join:", "}}</td></tr>
+		</table>
 		{% endfor %}
-	</table>
+	</section>
 </main>
 {% endblock %}

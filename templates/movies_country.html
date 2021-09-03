@@ -6,58 +6,23 @@
 	<section>
 		<h2> {{ Country.upper }}</h2>
 	</section>
-	<!-- 
-<div>
-	<p>
-		<form action="title/">	
-		    <input type = "submit" value = "Order by Title">
-		</form> 
-		<form action="/year/">	
-		    <input type = "submit" value = "Order by Year">
-		</form>
-		<form action="/category/">	
-		    <input type = "submit" value = "Order by Category">
-		</form>
-		<form action="/director/">	
-		    <input type = "submit" value = "Order by Director">
-		</form>
-		<form action="/language/">	
-		    <input type = "submit" value = "Order by Language">
-		</form>
-		<form action="/lenght/">	
-		    <input type = "submit" value = "Order by Lenght">
-		</form>
-		
-	</p>
-</div> -->
-	<table border="1">
-		<tr>
-			<!-- <th> Sr. No. </th> -->
-			<th> Title </th>
-			<th> Year </th>
-			<th> Director </th>
-			<th> Language </th>
-			<th> Themes </th>
-			<th> Category </th>
-			<th> Length </th>
-			<th> Time Period </th>
-			<th> Country </th>
-		</tr>
+	
+	<section class="table">
 		{% for movie in movies_country %}
-		<tr>
-			<!-- <td>{{movie.id}}</td> -->
-			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
-			<td>{{movie.year}}</td>
-			<td>{{movie.director.all|join:", "}}</td>
-			<td>{{movie.language.all|join:", "}}</td>
-			<td>{{movie.theme.all|join:", "}}</td>
-			<td>{{movie.category.all|join:", "}}</td>
-			<td>{{movie.lenght}}</td>
-			<td>{{movie.time_period.all|join:", "}}</td>
-			<td>{{movie.country.all|join:", "}}</td>
-		</tr>
+		<table>
+		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
+		<tr><td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td></tr>
+		<tr>	<td>{{movie.year}}</td></tr>
+		<tr>	<td>{{movie.director.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.language.all|join:", "}}</td><tr>
+		<tr>	<td>{{movie.theme.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.category.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.lenght}}</td></tr>
+		<tr>	<td>{{movie.time_period.all|join:", "}}</td></tr>
+		<tr>	<td>{{movie.country.all|join:", "}}</td></tr>
+		</table>
 		{% endfor %}
-	</table>
+	</section>
 
 </main>
 {% endblock %}
