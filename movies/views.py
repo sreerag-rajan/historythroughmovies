@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from .models import Movies, Country, Language, Theme, Category, TimePeriod
+from .models import Movies, Country, Language, Theme, Category, MovieTheme
 
 def movies_all(request, sort= 'title'):	
 	queryset = Movies.objects.all().order_by(sort)
@@ -32,7 +32,7 @@ def themes_all(request):
 
 
 def themes_view_individual(request, theme):
-	queryset1 = Movies.objects.all().filter(theme__slug = theme).order_by('title')
+	queryset1 = MovieTheme.objects.all().filter(theme = theme).order_by('theme')
 	queryset2 = Theme.objects.get(slug = theme)
 	context = {
 		'eachtheme': queryset2,
@@ -41,27 +41,6 @@ def themes_view_individual(request, theme):
 		
 	}
 	return render (request, 'eachtheme.html', context)
-
-def timeperiod_all(request):
-	queryset = TimePeriod.objects.all()
-	context = {
-		'TimePeriod' : queryset,
-			 
-	}
-	return render(request, "timeperiod_all.html", context)
-
-
-def timeperiod_individual(request, timeperiod):
-	queryset1 = Movies.objects.all().filter(time_period__slug = timeperiod).order_by('title')
-	queryset2 = TimePeriod.objects.get(slug = timeperiod)
-	context = {
-		'timeperiod': queryset2,
-		'Movies': queryset1,
-		# 'Timepriod': theme,
-		
-	}
-	return render (request, 'timeperiod_individual.html', context)
-
 
 def movie_detail(request, movie):
 	queryset= Movies.objects.get(slug=movie)

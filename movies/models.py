@@ -1,9 +1,11 @@
+from email.policy import default
 from django.db import models
+from autoslug import AutoSlugField
 
 
 class Language(models.Model):
     language = models.CharField(max_length=100, primary_key=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from='language', null = True)
 
     class Meta:
         ordering = ['language']
@@ -12,19 +14,11 @@ class Language(models.Model):
         return self.language
 
 
-class TimePeriod(models.Model):
-    time_period = models.CharField(max_length=100, primary_key=True)
-    description = models.TextField(blank=True)
-    slug = models.SlugField(max_length=100, unique=True)
-
-    def __str__(self):
-        return self.time_period
-
 
 class Theme(models.Model):
     theme = models.CharField(max_length=100, primary_key=True)
     description = models.TextField(blank=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from='theme',null = True)
 
     class Meta:
         ordering = ['theme']
@@ -35,7 +29,7 @@ class Theme(models.Model):
 
 class Category(models.Model):
     category = models.CharField(max_length=100, primary_key=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from="category",null = True)
 
     class Meta:
         ordering = ['category']
@@ -46,7 +40,7 @@ class Category(models.Model):
 
 class Director(models.Model):
     director = models.CharField(max_length=100, primary_key=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from="director",null = True)
 
     class Meta:
         ordering = ['director']
@@ -57,7 +51,7 @@ class Director(models.Model):
 
 class Country(models.Model):
     country = models.CharField(max_length=100, primary_key=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from="country",null = True)
 
     class Meta:
         ordering = ['country']
@@ -72,24 +66,27 @@ class Movies(models.Model):
     year = models.IntegerField()
     director = models.ManyToManyField(Director)
     language = models.ManyToManyField(Language)
-    theme = models.ManyToManyField(Theme)
     category = models.ManyToManyField(Category)
     lenght = models.CharField(max_length=10, help_text='Use HH:MM:SS format')
-    time_period = models.ManyToManyField(
-        TimePeriod, help_text='If choosing Transitioning also choose from which period to which period')
+    time_period = models.CharField(max_length=200)
     country = models.ManyToManyField(Country)
-    para1 = models.TextField(blank=True)
-    para2 = models.TextField(blank=True)
-    para3 = models.TextField(blank=True)
-    para4 = models.TextField(blank=True)
-    para5 = models.TextField(blank=True)
-
-    poster = models.ImageField(
-        upload_to='posters/', blank=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
+    
+    poster = models.URLField(null=True)
+    slug = AutoSlugField(populate_from="title",null = True)
 
     class Meta:
         ordering = ['title']
 
     def __str__(self):
         return self.title
+
+
+class MovieTheme(models.Model):
+    movie = models.ForeignKey('Movies', on_delete=models.DO_NOTHING);
+    theme = models.ForeignKey("Theme", on_delete=models.DO_NOTHING);
+    text = models.TextField();
+
+    def __str__(self):
+        return self.movie.title + "-" +self.theme.theme
+        

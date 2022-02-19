@@ -13,15 +13,8 @@
 		{% for movie in Movies %}
 		<table class='table'>
 		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
-		<tr><td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td></tr>
-		<tr>	<td>{{movie.year}}</td></tr>
-		<tr>	<td>{{movie.director.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.language.all|join:", "}}</td><tr>
-		<tr>	<td>{{movie.theme.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.category.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.lenght}}</td></tr>
-		<tr>	<td>{{movie.time_period.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.country.all|join:", "}}</td></tr>
+		<tr><td><a href="/movie-{{movie.movie}}">{{movie.movie}}</a></td></tr>
+		<tr><td>{{movie.text}}</td></tr>
 		</table>
 		{% endfor %}
 	</section>

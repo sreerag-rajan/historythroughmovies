@@ -3,7 +3,7 @@
 
 <head>
 
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	{% block stylesheet %} {% endblock %}
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -20,21 +20,12 @@
 </head>
 
 <body>
-	<header class="topsection">
-		<!-- <img src='/static/logo.jpg' alt="logo" class="logoleft"> -->
-
-		<h1>HISTORY THROUGH MOVIES</h1>
-
-		<!-- <img src='/static/logo.jpg' alt="logo" class="logoright"> -->
-	</header>
+	{% block header %} {% endblock %}
 
 	<nav class='navbar'>
 
 		<span class='navbar' id="homenav">
 			<a href=" /">Home</a>
-		</span>
-		<span class='navbar'>
-			<a href="/historica_cinematica/">Historia Cinematica</a>
 		</span>
 		<span class='navbar'>
 			<a href="/themes/">Themes</a>
@@ -44,13 +35,13 @@
 		</span>
 
 		<span class='navbar'>
-			<a href=" /suggestion/"> Suggest Us Movies!</a>
+			<a href=" /">Special Modules</a>
 		</span>
 		<span class='navbar'>
-			<a href=" /admin/">Admin</a>
+			<a href=" /">Other Resources</a>
 		</span>
 		<span class='navbar' id="aboutnav">
-			<a href="/about/">About</a>
+			<a href="/allmovies">See all Movies</a>
 	</nav>
 
 
