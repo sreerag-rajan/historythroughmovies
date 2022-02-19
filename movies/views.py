@@ -1,4 +1,6 @@
+from turtle import title
 from django.shortcuts import render
+from django.db import connection
 
 # Create your views here.
 from .models import Movies, Country, Language, Theme, Category, MovieTheme
@@ -33,19 +35,22 @@ def themes_all(request):
 
 def themes_view_individual(request, theme):
 	queryset1 = MovieTheme.objects.all().filter(theme = theme).order_by('theme')
-	queryset2 = Theme.objects.get(slug = theme)
+
+	theme = Theme.objects.get(slug = theme)
 	context = {
-		'eachtheme': queryset2,
+		'eachtheme': theme,
 		'Movies': queryset1,
-		'Theme': theme,
+		'Theme': theme,	
 		
 	}
 	return render (request, 'eachtheme.html', context)
 
 def movie_detail(request, movie):
 	queryset= Movies.objects.get(slug=movie)
+	theme = MovieTheme.objects.all().filter(movie= queryset.id)
 	context ={
-		'Movie' : queryset
+		'Movie' : queryset,
+		'Themes': theme
 	}
 
 	return render(request, 'movie.html', context)

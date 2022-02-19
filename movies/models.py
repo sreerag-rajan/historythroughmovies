@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from autoslug import AutoSlugField
 
@@ -63,16 +62,14 @@ class Country(models.Model):
 class Movies(models.Model):
 
     title = models.CharField(max_length=100)
+    poster = models.URLField(default="https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/500x735.png")
     year = models.IntegerField()
     director = models.ManyToManyField(Director)
     language = models.ManyToManyField(Language)
     category = models.ManyToManyField(Category)
-    lenght = models.CharField(max_length=10, help_text='Use HH:MM:SS format')
-    time_period = models.CharField(max_length=200)
+    length = models.CharField(max_length=10, help_text='Use HH:MM:SS format')
     country = models.ManyToManyField(Country)
-    description = models.TextField(blank=True)
-    
-    poster = models.URLField(null=True)
+    description = models.TextField(blank=True) 
     slug = AutoSlugField(populate_from="title",null = True)
 
     class Meta:
@@ -83,8 +80,8 @@ class Movies(models.Model):
 
 
 class MovieTheme(models.Model):
-    movie = models.ForeignKey('Movies', on_delete=models.DO_NOTHING);
-    theme = models.ForeignKey("Theme", on_delete=models.DO_NOTHING);
+    movie = models.ForeignKey('Movies', on_delete=models.DO_NOTHING)
+    theme = models.ForeignKey("Theme", on_delete=models.DO_NOTHING)
     text = models.TextField();
 
     def __str__(self):

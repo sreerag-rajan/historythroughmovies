@@ -12,9 +12,9 @@
 	<section class= 'table'>
 		{% for movie in Movies %}
 		<table class='table'>
-		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
-		<tr><td><a href="/movie-{{movie.movie}}">{{movie.movie}}</a></td></tr>
-		<tr><td>{{movie.text}}</td></tr>
+		<tr> <td><img src="{{movie.movie.poster}}" alt="film Poster"></td></tr>	
+		<tr><td><a href="/movie-{{movie.movie.slug}}">{{movie.movie}}</a></td></tr>
+		<tr><td>{{movie.text|safe}}</td></tr>
 		</table>
 		{% endfor %}
 	</section>

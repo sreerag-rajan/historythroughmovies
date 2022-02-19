@@ -22,7 +22,13 @@
             </tr>
             <tr>
                 <th>THEMES</th>
-                <td>{{Movie.theme.all|join:", "}}</td>
+                <!-- <td>{{Movie.theme.all|join:", "}}</td> -->
+                <td>
+                    {%for theme in Themes%}
+                    <a href="/themes/theme_{{theme.theme.slug}}">{{theme.theme}}</a>
+                    {%endfor%}
+
+                </td>
             </tr>
             <tr>
                 <th>CATEGORY</th>
@@ -33,26 +39,18 @@
                 <td>{{Movie.lenght}}</td>
             </tr>
             <tr>
-                <th>TIME PERIOD</th>
-                <td>{{Movie.time_period.all|join:", "}}</td>
-            </tr>
-            <tr>
                 <th>COUNTRY(S)</th>
                 <td>{{Movie.country.all|join:", "}}</td>
             </tr>
         </table>
     </section>
     <section id="poster">
-        <img src="{{Movie.poster.url}}" alt="film Poster">
+        <img src="{{Movie.poster}}" alt="film Poster">
     </section>
 </div>
 
     <section id="movietext">
-        <p>{{Movie.para1}}</p>
-        <p>{{Movie.para2}}</p>
-        <p>{{Movie.para3}}</p>
-        <p>{{Movie.para4}}</p>
-        <p>{{Movie.para5}}</p>
+        <p>{{Movie.description|safe}}</p>
 
     </section>
 </main>
