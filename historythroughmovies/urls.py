@@ -23,6 +23,7 @@ from pages.views import home_view, about_view, country_view
 from printingdata.views import printing_csv
 from suggestion.views import suggestion_create_view
 from specialModules.urls import smurlpatterns
+from otherResources.urls import orurlpatterns
 
 
 
@@ -40,6 +41,7 @@ urlpatterns = [
     path('about/', about_view, name='about'),
     path('countries/', country_view),
     path('special-modules/', include(smurlpatterns)),
+    path('other-resources/', include(orurlpatterns)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

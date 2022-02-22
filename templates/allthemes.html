@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
-{% block stylesheet%} <link rel="stylesheet" href="/static/css/style.css"> {%endblock%}
+{% block stylesheet%} <link rel="stylesheet" href="/static/css/alltheme.css"> {%endblock%}
+
+{% block pagetitle %} ALL THEMES {%endblock%}
+{% block pageheading %} Themes {%endblock%}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/static/style.css">
 
-<h2>ALL THEMES</h2>
 
-<ul class="alltheme">
-	{% for theme in allthemes %}
-	<a href=theme_{{theme}}>
-		<li>{{theme.theme}}</li>
-	</a>
-	{% endfor %}
-</ul>
+
+<main>
+	<div class="alltheme">
+		{% for theme in allthemes %}
+		<div class="theme">
+		<a href=theme_{{theme.slug}}>
+			
+				<h2>{{theme.theme}}</h2>
+			
+		</a>
+	</div>
+		{% endfor %}
+	</div>
+</main>
+
+
 
 {% endblock %}

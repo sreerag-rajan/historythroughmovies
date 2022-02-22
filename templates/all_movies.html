@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
+{% block stylesheet %} <link rel="stylesheet" type="text/css" href="/static/css/allmovies.css">{%endblock%}
+
+{% block pagetitle %} 
+
+	ALL CINEMA
+
+{% endblock %}
 
 {% block content %}
 <main>
-	<h2> All Movies </h2>
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	
 	<!-- <span class="export">
 		<form action="/export">
 			<label>Export as .csv File</label>
@@ -13,37 +19,21 @@
 	</span> -->
 
 	<section>
-		<p>
-		<form action="/allmovies/title">
-			<input type="submit" value="Order by Title">
-		</form>
-		<form action="/allmovies/year">
-			<input type="submit" value="Order by Year">
-		</form>
-
-		<form action="/allmovies/director">
-			<input type="submit" value="Order by Director">
-		</form>
-		<form action="/allmovies/language">
-			<input type="submit" value="Order by Language">
-		</form>
-		<form action="/allmovies/category">
-			<input type="submit" value="Order by Category">
-		</form>
-		<form action="/allmovies/lenght">
-			<input type="submit" value="Order by Length">
-		</form>
-		<form action="/allmovies/country">
-			<input type="submit" value="Order by Country">
-		</form>
-		</p>
+		<select name="sort" id="sort">
+			<option value="title">--Sort By--</option>
+			<option value="title">Title</option>
+			<option value="year">Year</option>
+			<option value="director">Director</option>
+			<option value="language">Language</option>
+			<option value="category">Category</option>
+			<option value="length">Length</option>
+			<option value="country">Country</option>			
+		</select>
 	</section>
-
-
-
-	
-		<!-- <tr>
-
+	<section class="table">
+	<table>
+		<tr>
+			<th> </th>
 			<th> Title </th>
 			<th> Year </th>
 			<th> Director </th>
@@ -51,24 +41,30 @@
 			<th> Themes </th>
 			<th> Category </th>
 			<th> Length </th>
-			<th> Time Period </th>
+			<th>Seasons</th>
+			<th>Episodes</th>
 			<th> Country </th>
-		</tr> -->
-	<section class="table">
+		</tr>
+	
 		{% for movie in all_movies %}
-		<table>
-		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
-		<tr><td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td></tr>
-		<tr>	<td>{{movie.year}}</td></tr>
-		<tr>	<td>{{movie.director.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.language.all|join:", "}}</td><tr>
-		<tr>	<td>{{movie.theme.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.category.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.lenght}}</td></tr>
-		<tr>	<td>{{movie.time_period.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.country.all|join:", "}}</td></tr>
-		</table>
+		
+		<tr> 
+			<td><img src="{{movie.poster}}" alt="film Poster"></td>	
+			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
+			<td>{{movie.year}}</td>
+			<td>{{movie.director.all|join:", "}}</td>
+			<td>{{movie.language.all|join:", "}}</td>
+			<td>{{movie.theme.all|join:", "}}</td>
+			<td>{{movie.category.all|join:", "}}</td>
+			<td>{% if movie.length%} {{movie.length}} {% endif %}</td>
+			<td>{% if movie.seasons%}{{movie.seasons}} {% endif %}</td>
+			<td>{% if movie.episodes%}{{movie.episodes}}{% endif %}</td>		
+			<td>{{movie.country.all|join:", "}}</td>
+		</tr>
 		{% endfor %}
+	</table>
+		
 	</section>
 </main>
+<script src="/static/js/allmovies.js"></script>
 {% endblock %}

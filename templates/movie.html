@@ -34,10 +34,24 @@
                 <th>CATEGORY</th>
                 <td>{{Movie.category.all|join:", "}}</td>
             </tr>
+            {% if Movie.length %}
             <tr>
                 <th>LENGTH</th>
-                <td>{{Movie.lenght}}</td>
+                <td>{{Movie.length}}</td>
             </tr>
+            {% endif %}
+            {% if Movie.seasons %}
+            <tr>
+                <th>SEASONS</th>
+                <td>{{Movie.seasons}}</td>
+            </tr>
+            {% endif %}
+            {% if Movie.episodes %}
+            <tr>
+                <th>LENGTH</th>
+                <td>{{Movie.episodes}}</td>
+            </tr>
+            {% endif %}
             <tr>
                 <th>COUNTRY(S)</th>
                 <td>{{Movie.country.all|join:", "}}</td>

@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from turtle import title
 from django.shortcuts import render
 from django.db import connection
@@ -6,7 +7,10 @@ from django.db import connection
 from .models import Movies, Country, Language, Theme, Category, MovieTheme
 
 def movies_all(request, sort= 'title'):	
-	queryset = Movies.objects.all().order_by(sort)
+	if (sort == 'length'):
+		queryset = Movies.objects.all().exclude(length=None).order_by(sort)
+	else:
+		queryset = Movies.objects.all().order_by(sort)
 	context = {
 		'all_movies' : queryset,		 
 	}
