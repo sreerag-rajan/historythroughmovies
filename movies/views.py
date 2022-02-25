@@ -38,14 +38,13 @@ def themes_all(request):
 
 
 def themes_view_individual(request, theme):
-	queryset1 = MovieTheme.objects.all().filter(theme = theme).order_by('theme')
+	# queryset1 = MovieTheme.objects.all().filter(theme = theme).order_by('theme')
 
-	theme = Theme.objects.get(slug = theme)
+	themeObj = Theme.objects.get(slug = theme)
+	queryset1 = MovieTheme.objects.all().filter(theme = themeObj.theme).order_by('theme')
 	context = {
-		'eachtheme': theme,
-		'Movies': queryset1,
-		'Theme': theme,	
-		
+		'eachtheme': themeObj,
+		'Movies': queryset1,		
 	}
 	return render (request, 'eachtheme.html', context)
 

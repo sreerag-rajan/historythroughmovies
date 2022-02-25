@@ -62,7 +62,7 @@ class Country(models.Model):
 class Movies(models.Model):
 
     title = models.CharField(max_length=100)
-    poster = models.URLField(default="https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/500x735.png")
+    poster = models.ImageField(upload_to="posters/")
     year = models.IntegerField()
     director = models.ManyToManyField(Director)
     themes = models.ManyToManyField(Theme)
@@ -86,6 +86,9 @@ class MovieTheme(models.Model):
     movie = models.ForeignKey('Movies', on_delete=models.DO_NOTHING)
     theme = models.ForeignKey("Theme", on_delete=models.DO_NOTHING)
     text = models.TextField();
+
+    class Meta:
+        ordering = ["movie"]
 
     def __str__(self):
         return self.movie.title + "-" +self.theme.theme

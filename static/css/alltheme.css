@@ -1,7 +1,7 @@
 
 
+
 .alltheme{
-    display: flex;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 70px 80px;
@@ -18,13 +18,15 @@
     align-content: center;    
     background-color: #0093E9;
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    border-radius: 20px;    
     box-sizing: border-box;  
+    
 }
 
 
 .theme:hover{
     background-color: #0093E9;
-    background-image: linear-gradient(340deg, #0093E9 0%, #80D0C7 100%);    
+    background-image: linear-gradient(340deg, #0093E9 0%, #80D0C7 100%);   
 }
 .theme>a>h2{
     color: white;

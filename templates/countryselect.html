@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% block stylesheet%} <link rel="stylesheet" href="/static/css/countryselect.css"> {%endblock%}
 {% block pagetitle%} Countries {%endblock%}
+{% block pageheading%} COUNTRIES {%endblock%}
 {% block content %}
 <main>
-	<p>The idea of a country is a modern concept. It was the Treaty of Westphelia that lay the foundation to todays
+	<!-- <p>The idea of a country is a modern concept. It was the Treaty of Westphelia that lay the foundation to todays
 		notion of the nation-state. 1650 is still quite
 		some time back but in historical sense that qualifies as a modern notion. It has since then evolved into what we
 		know as 200+ countries. Being a modern notion it brings with it challenges when
@@ -30,7 +32,7 @@
 	<p>Despite all these, we still attempted to classify movies based on countries. We do give the option for movies to
 		not be classified under this with "Cannot be placed within Political Boundaries or the notion of Nation-State.
 		Yet we cannot deny that it is a convinent form of classification. If its any consolation we have tried to keep
-		these matters in mind when choosing the countries associated with a movie.</p>
+		these matters in mind when choosing the countries associated with a movie.</p> -->
 
 	<section id="map">
 		<?xml version="1.0"?>
@@ -2016,16 +2018,25 @@ THE SOFTWARE.
 
 
 	<h3 style="text-align: center;">OR</h3>
-	<section>
-		<ul>
+	<section id="countrieslist">
+		
 			<div id="nocountry">
-				<li><a href="/movies_set_in_Cannot be placed within political boundaries or notions of Nation-States">Cannot
-						be placed within political boundaries or notions of Nation-States</a></li>
+				<a href="/movies_set_in_Transcends Political Boundaries">Transcends Political Boundaries</a>
 			</div>
+			
+			<ul>
 			<div class="countries">
 				<h3>A</h3>
-				<li><a href="/movies_set_in_afghanistan">Afghanistan</a></li>
-				<li><a href="/movies_set_in_albania">Albania</a></li>
+				<li>
+					<a href="/movies_set_in_afghanistan">
+						Afghanistan
+					</a>
+				</li>
+				<li>
+					<a href="/movies_set_in_albania">
+						Albania
+					</a>
+				</li>
 				<li><a href="/movies_set_in_algeria">Algeria</a></li>
 				<li><a href="/movies_set_in_american samoa">American Samoa</a></li>
 				<li><a href="/movies_set_in_andorra">Andorra</a></li>

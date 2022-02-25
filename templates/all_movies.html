@@ -7,6 +7,11 @@
 	ALL CINEMA
 
 {% endblock %}
+{% block pageheading %} 
+
+	ALL CINEMA
+
+{% endblock %}
 
 {% block content %}
 <main>
@@ -49,12 +54,12 @@
 		{% for movie in all_movies %}
 		
 		<tr> 
-			<td><img src="{{movie.poster}}" alt="film Poster"></td>	
+			<td><img src="{{movie.poster.url}}" alt="film Poster"></td>	
 			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
 			<td>{{movie.year}}</td>
 			<td>{{movie.director.all|join:", "}}</td>
 			<td>{{movie.language.all|join:", "}}</td>
-			<td>{{movie.theme.all|join:", "}}</td>
+			<td>{{movie.themes.all|join:", "}}</td>
 			<td>{{movie.category.all|join:", "}}</td>
 			<td>{% if movie.length%} {{movie.length}} {% endif %}</td>
 			<td>{% if movie.seasons%}{{movie.seasons}} {% endif %}</td>

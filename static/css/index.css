@@ -13,8 +13,11 @@ header {
 
 }
 body{
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    /* background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); */
+    background: rgb(0,193,215);
+background: linear-gradient(70deg, rgba(0,193,215,1) 0%, rgba(1,1,1,1) 59%);
 }
+
 header>h1{
     text-align: center;
     color: white;
@@ -27,6 +30,7 @@ p{
     padding: 20px;
     text-align: justify;
     color: white;
+    box-sizing: border-box;
 }
 /* section:nth-child(1){
     background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
@@ -36,6 +40,7 @@ section{
     height: auto;
     padding: 30px;
     width: 98%;
+    box-sizing: border-box;
 
 }
 #Squares4{
@@ -51,6 +56,9 @@ section{
     padding: 30px;
     
     
+}
+a{
+    text-decoration: none;
 }
 .sq4{
     width: 300px;
@@ -68,11 +76,46 @@ section{
     border-radius: 20px;
 
 }
+.sq4:nth-child(1){
+    background: rgb(249,0,0);
+background: linear-gradient(319deg, rgba(249,0,0,1) 21%, rgba(1,1,1,1) 79%);
+}
+.sq4:nth-child(2){
+    background: rgb(240,249,0);
+background: linear-gradient(319deg, rgba(240,249,0,1) 21%, rgba(1,1,1,1) 79%);
+}
+.sq4:nth-child(3){
+    background: rgb(0,249,99);
+background: linear-gradient(319deg, rgba(0,249,99,1) 0%, rgba(1,1,1,1) 79%);
+}
+.sq4:nth-child(4){
+    background: rgb(0,64,249);
+background: linear-gradient(319deg, rgba(0,64,249,1) 0%, rgba(1,1,1,1) 79%);
+}
+.sq4:hover {
+    cursor: pointer;
+}
+.sq4:nth-child(1):hover{
+    background: rgb(249,0,0);
+background: linear-gradient(121deg, rgba(249,0,0,1) 21%, rgba(1,1,1,1) 79%);
+}
+.sq4:nth-child(2):hover{
+    background: rgb(240,249,0);
+background: linear-gradient(121deg, rgba(240,249,0,1) 21%, rgba(1,1,1,1) 79%);
+}
+.sq4:nth-child(3):hover{
+    background: rgb(0,249,99);
+background: linear-gradient(121deg, rgba(0,249,99,1) 0%, rgba(1,1,1,1) 79%);
+}
+.sq4:nth-child(4):hover{
+    background: rgb(0,64,249);
+    background: linear-gradient(121deg, rgba(0,64,249,1) 0%, rgba(1,1,1,1) 79%);
+}
 #allmovies{
     width: 90%;
     height: 150px;
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background: rgb(196,0,249);
+background: linear-gradient(318deg, rgba(196,0,249,1) 17%, rgba(1,1,1,1) 79%);
     margin: auto;
     margin-top: 20px;
     display: flex;
@@ -86,21 +129,89 @@ section{
     border-radius: 15px;
 
 }
+#allmovies:hover{
+    background: rgb(196,0,249);
+background: linear-gradient(160deg, rgba(196,0,249,1) 17%, rgba(1,1,1,1) 79%);
+}
 #recent{
     width: 90%;
-    height: 200px;
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    height: auto;
+    background: rgb(107,19,231);
+background: linear-gradient(319deg, rgba(107,19,231,1) 40%, rgba(15,0,36,1) 73%, rgba(0,0,0,1) 97%);
+
     margin: auto;
     margin-top: 20px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
 
+}
+#recent>div{
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: wheat;
+}
+
+/* #recent>div:nth-child(2){
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+} */
+#recent>div>h3{
+    padding: 30px;
+}
+#postercarasoul{
+    width: 100%;
+    height: 400px
 }
 #workingon{
     width: 90%;
     height: 200px;
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background: rgb(215,93,0);
+background: linear-gradient(315deg, rgba(215,93,0,1) 0%, rgba(1,1,1,1) 73%);
     margin: auto;
-    margin-top: 20px;
+    margin-top: 80px;
+    
+}
 
+#wo1{
+    /* display: grid;
+    grid-template-columns: 30% 70%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    color: aliceblue;
+    font-size: 40px;
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#wo1>div:nth-child(2)>h3{
+    font-size: 60px;
+}
+#workingon>div:nth-child(2){
+    display: flex;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.507);
+    font-size: 20px;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+}
+#workingon>div:nth-child(2)>div{
+    margin: 10px 30px;
+}
+#workingon h3{
+    padding: 30px;
 }

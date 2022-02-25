@@ -7,6 +7,11 @@ main{
 	margin: auto;
 	margin-top: 20px;
 }
+p{
+	margin: 20px;
+	font-size: 18px;
+	text-align: justify;
+}
 header {
 	height: 200px;
 	width: 100%;
@@ -15,6 +20,7 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	box-sizing: border-box;
 }
 
 header>h1{
@@ -26,13 +32,16 @@ header>h1{
 nav{
 	width: 100%;
 	height: 50px;
+	position: sticky;
+	top: 0px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	margin-bottom: 20px;
 	background-color: #21D4FD;
-	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-	
+	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);	
+	border: 1px solid white;
+	box-sizing: border-box;
 }
 nav>div>a{
 	font-size: 20px;
