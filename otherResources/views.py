@@ -4,3 +4,4 @@ from django.shortcuts import render
 
 def otherResources_view(request):
     return render(request, "otherResources/otherResources.html")
+

@@ -8,46 +8,51 @@
 	
 	<section class="movies">
 		{% for movie in movies_country %}
-		<table>
-			<tr>
-				<td colspan="2" id="posterrow">
-					<img src="{{movie.poster.url}}" alt="film Poster">
-				</td>
-			</tr>	
-			<tr>
-				<td colspan="2" id="titlerow">
-					<a href="/movie-{{movie.slug}}"> {{movie.title}}</a>
-				</td>
-			</tr>
-			<tr>	
-				<td>Year:</td>
-				<td> {{movie.year}}</td>
-			</tr>
-			<tr>	
-				<td>Director(s):</td>
-				<td> {{movie.director.all|join:", "}}</td>
-			</tr>
-			<tr>	
-				<td>Language(s):</td>
-				<td> {{movie.language.all|join:", "}}</td>
-				<tr>
-			<tr>
-				<td>Theme(s):</td>	
-				<td>{{movie.themes.all|join:", "}}</td>
-			</tr>
-			<tr>
-				<td>Category:</td>	
-				<td>{{movie.category.all|join:", "}}</td>
-			</tr>
-			<tr>
-				<td>Length:</td>	
-				<td>{{movie.length}}</td>
-			</tr>
-			<tr>
-				<td>Country(s):</td>	
-				<td>{{movie.country.all|join:", "}}</td>
-			</tr>
-		</table>
+		<a href="/movie-{{movie.slug}}">
+		<div class="movie">
+			<div class="poster">
+				<img src="{{movie.poster.url}}" alt="film Poster">
+			</div>
+			<div class="details">
+				<table>	
+					<tr>
+						<td colspan="2" id="titlerow">
+							<a href="/movie-{{movie.slug}}"> {{movie.title}}</a>
+						</td>
+					</tr>
+					<tr>	
+						<td>Year:</td>
+						<td> {{movie.year}}</td>
+					</tr>
+					<tr>	
+						<td>Director(s):</td>
+						<td> {{movie.director.all|join:", "}}</td>
+					</tr>
+					<tr>	
+						<td>Language(s):</td>
+						<td> {{movie.language.all|join:", "}}</td>
+						<tr>
+					<tr>
+						<td>Theme(s):</td>	
+						<td>{{movie.themes.all|join:", "}}</td>
+					</tr>
+					<tr>
+						<td>Category:</td>	
+						<td>{{movie.category.all|join:", "}}</td>
+					</tr>
+					<tr>
+						<td>Length:</td>	
+						<td>{{movie.length}}</td>
+					</tr>
+					<tr>
+						<td>Country(s):</td>	
+						<td>{{movie.country.all|join:", "}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</a>
+		
 		{% endfor %}
 	</section>
 

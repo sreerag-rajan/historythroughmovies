@@ -10,6 +10,7 @@
 		<p> {{ eachtheme.description }}</p>
 	</section>
 	
+	
 	<section id="sc2">
 		{% for movie in Movies %}
 		<div class='movie'>
@@ -24,6 +25,7 @@
 			<div class="desc">{{movie.text|safe}}</div>	
 		</div>
 		{% endfor %}
+
 	</section>
 </main>
 {% endblock %}

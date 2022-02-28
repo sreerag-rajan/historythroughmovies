@@ -19,11 +19,11 @@ main{
 .movies{
     width: 98%;
     margin: auto;
-    /* display: grid;
+    display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 100px; */
-    display: flex;
-    flex-wrap: wrap;
+    grid-gap: 100px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     align-items: top;
     box-sizing: border-box;
@@ -31,16 +31,36 @@ main{
     
 }
 .movies img{
-    width: 200px;
+    width: 100%;
 }
 main{
     margin-top: 40px;
 }
-table{
-    width: 400px;
+.movie{
+    width: 75%;
     margin: auto;
+    height: 430px;
+    
+}
+.details{
+    display: none;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
     background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+}
+.movie:hover .poster{
+    display: none;
+}
+.movie:hover .details{
+    display: block;
+}
+
+table{
+    width: 300px;
+    height: 100%;
+    margin: auto;
+    
     border-radius: 20px;
     padding: 20px;
 }
@@ -61,7 +81,7 @@ th,td{
     padding: 10px;
     font-size: 18px;
     box-sizing: border-box;
-    color: white;
+    color: black;
     border-radius: 20px;
 }
 a{

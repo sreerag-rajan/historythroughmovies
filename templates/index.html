@@ -40,10 +40,20 @@
         <section id="lowmidsec">
             <div id="recent">
                 <div>
-                    <h3>Recently Added Theme</h3>
+                    <h3>Recently Added:</h3>
                 </div>
-                <div>
-                    <h3>SCIENCE AND TECHNOLOGY</h3>
+                <div id="recentmid">
+                    <div id="rt1">
+                        {%for t in recentTheme%}
+                        <h3>{{t.name}}</h3>
+                        {%endfor%}
+                    </div>
+                    <div id="rt2">
+                        {%for rt in recentThemePosters%}
+                        <div>{{rt.movieName}}</div>
+                        {%endfor%}
+                    </div>
+                    
                 </div>
                 <div >
                     <img id="postercarasoul" src="http://127.0.0.1:8000/media/posters/Agantuk.jpg" alt="filmposter">                    
@@ -55,29 +65,30 @@
                         <h3>Current Theme:</h3>
                     </div>
                     <div>
-                        <h3><u>Latin America</u></h3>
+                        {%for theme in nextTheme %}
+                        <h3><u> {{theme.name}} </u></h3>
+                        {%endfor%}
                     </div>
                 </div>
                 <div id="wo2">
-                    <div>Aguirre, The Warth of God (1972)</div>
-                    <div>When Banana Ruled (2017)</div>
-                    <div>The Ballad of the Little Soldier (1984)</div>
-                    <div>The Conspirators (1972) - Brazil (Minas Gerias)</div>
-                    <div>Brasilia, Contracoes de Uma Cidade (1968) - Brazil</div>
-                    <div>The Last Forest (2021)</div>
-                    <div>The Motorcycle Diaries (2004)</div>
-                    <div>Innocent Voices (2004)</div>
-                    <div>Death of a Bureaucrat (1966)</div>
-                    <div>Canoa: A shameful Memory (1976)</div>
+                    {%for theme in nextThemeMovies%}
+                    <div>{{theme.movieName}}</div>
+                    {%endfor%}
                 </div>
                 
             </div>
         </section>
-    
+        
     </main>
     <footer></footer>
 </body>
 </html>
+<script>
+    const posterarr = []
+    "{%for poster in recentThemePosters %}"
+        posterarr.push("{{poster.posterUrl}}")
+        "{%endfor%}"
+</script>
 <script src="/static/js/index.js"></script>
 
 

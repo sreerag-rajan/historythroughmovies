@@ -1,14 +1,26 @@
-from asyncio.windows_events import NULL
-from turtle import title
+
 from django.shortcuts import render
 from django.db import connection
 
 # Create your views here.
 from .models import Movies, Country, Language, Theme, Category, MovieTheme
 
-def movies_all(request, sort= 'title'):	
+def movies_all(request):	
+	query = request.GET
+	
+	if bool(query):
+		if("sort" in query.keys()):
+			sort = query['sort'];
+		else:
+			sort = "title";
+		if("category" in query.keys()):
+			category = query['category'] 
+	else:
+		sort = "title"
+	
+
 	if (sort == 'length'):
-		queryset = Movies.objects.all().exclude(length=None).order_by(sort)
+		queryset = Movies.objects.all().exclude(length=None).order_by("length")
 	else:
 		queryset = Movies.objects.all().order_by(sort)
 	context = {
@@ -18,7 +30,18 @@ def movies_all(request, sort= 'title'):
 
 
 def movies_countries(request, country):
-	queryset = Movies.objects.all().filter(country =country).order_by('title')
+	query = request.GET
+	
+	if bool(query):
+		if("sort" in query.keys()):
+			sort = query['sort'];
+		else:
+			sort = "title";
+		if("category" in query.keys()):
+			category = query['category'] 
+	else:
+		sort = "title"
+	queryset = Movies.objects.all().filter(country =country).order_by(sort)
 	context = {
 		'movies_country': queryset,
 		'Country': country,

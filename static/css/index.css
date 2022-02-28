@@ -159,16 +159,39 @@ background: linear-gradient(319deg, rgba(107,19,231,1) 40%, rgba(15,0,36,1) 73%,
     color: wheat;
 }
 
-/* #recent>div:nth-child(2){
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-} */
-#recent>div>h3{
-    padding: 30px;
+#recent>div:nth-child(1){
+    padding: 10px;
+    box-sizing: border-box;
 }
 #postercarasoul{
     width: 100%;
     height: 400px
+}
+#rt1>div>h3{
+    padding: 30px;
+}
+
+#rt2{
+    display: flex;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255);
+    font-size: 20px;
+    /* justify-content: space-around; */
+    align-items: center;
+    display: none;
+    overflow-y:scroll;
+}
+#rt2::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+#rt2 {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+#rt2>div{
+    margin: 10px 30px;
 }
 #workingon{
     width: 90%;
@@ -208,10 +231,21 @@ background: linear-gradient(315deg, rgba(215,93,0,1) 0%, rgba(1,1,1,1) 73%);
     justify-content: space-around;
     align-items: center;
     display: none;
+    overflow-y: scroll;
 }
+#workingon>div:nth-child(2)::-webkit-scrollbar {
+    display: none;
+}
+ /* Hide scrollbar for IE, Edge and Firefox */
+#workingon>div:nth-child(2) {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 #workingon>div:nth-child(2)>div{
     margin: 10px 30px;
 }
+
 #workingon h3{
     padding: 30px;
 }

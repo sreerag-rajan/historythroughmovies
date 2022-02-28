@@ -32,7 +32,7 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('allmovies/', movies_all, name='all movies'),
     path('movies_set_in_<str:country>/', movies_countries),
-    path('allmovies/<str:sort>/', movies_all),
+    # path('allmovies/<str:sort>/', movies_all),
     path('themes/', themes_all, name='Themes'),
     path('themes/theme_<str:theme>/', themes_view_individual),
     path('export', printing_csv),
