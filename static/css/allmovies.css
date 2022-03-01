@@ -13,6 +13,8 @@ section:nth-child(1){
 }
 #sort{
     padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
 }
 img{
     width: 100%;
@@ -40,4 +42,22 @@ td{
 
 td:nth-child(1){
     padding: 0px;
+}
+#filter{
+    display: none;
+    border: 1px solid black;
+    margin: 20px 0;
+}
+#filterdivopener{
+    display: flex;
+}
+#filterdivopener img{
+    width: 15px;
+}
+#languagefil,#catfil{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+
 }

@@ -1,30 +1,64 @@
 
 from django.shortcuts import render
-from django.db import connection
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 from .models import Movies, Country, Language, Theme, Category, MovieTheme
 
 def movies_all(request):	
 	query = request.GET
-	
+	#setting stage for filteration
+	categoryfilter = []
+	languagefilter = []
+
+	#checking if any queries have been passed
 	if bool(query):
+		#sort query
 		if("sort" in query.keys()):
 			sort = query['sort'];
 		else:
 			sort = "title";
+		
+		#category query
 		if("category" in query.keys()):
-			category = query['category'] 
+			categories =query["category"].split("_");
+			for cat in categories:
+				categoryfilter.append(cat)
+		
+		#language query
+		if("language" in query.keys()):
+			languages =query["language"].split("_");
+			for lang in languages:
+				languagefilter.append(lang)	 
 	else:
 		sort = "title"
 	
+	#incase category and language is not present
+	categories = Category.objects.all().order_by("category")
+	languages = Language.objects.all()
+	if(len(categoryfilter)==0):		
+		for cat in categories:
+			categoryfilter.append(cat)
 
+	if(len(languagefilter)==0):		
+		for lang in languages:
+			languagefilter.append(lang)
+		
+	
 	if (sort == 'length'):
-		queryset = Movies.objects.all().exclude(length=None).order_by("length")
+		queryset = Movies.objects.all().filter(category__in=categoryfilter).filter(language__in=languagefilter).distinct().exclude(length=None).order_by("length")
 	else:
-		queryset = Movies.objects.all().order_by(sort)
+		queryset = Movies.objects.all().filter(category__in=categoryfilter).filter(language__in=languagefilter).distinct().order_by(sort)	
+
+	#Pagination			
+	paginator = Paginator(queryset,15)
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
 	context = {
-		'all_movies' : queryset,		 
+		'all_movies' : page_obj,
+		"categories": categories,
+		"languages": languages		 
 	}
 	return render(request, "all_movies.html", context)
 

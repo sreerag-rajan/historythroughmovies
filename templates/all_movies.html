@@ -23,7 +23,7 @@
 		</form>
 	</span> -->
 
-	<section>
+	<!-- <section>
 		<select name="sort" id="sort">
 			<option value="title">--Sort By--</option>
 			<option value="title">Title</option>
@@ -34,6 +34,50 @@
 			<option value="length">Length</option>
 			<option value="country">Country</option>			
 		</select>
+	</section> -->
+	<section>
+		<button id="filterdivopener">
+			Filter
+		</button>
+		{%include "_sort.html" %}
+	</section>
+	<section id="filter">
+			<div id="catfil">
+				<div>
+					<p>Categories:</p>
+				</div>
+				<div>
+					<input class="category" type="checkbox" name="all" value="all" id="allcat">
+					<label for="All">All</label>
+				</div>
+				{% for cat in categories %}
+				<div>
+					<input class="category" type="checkbox" name="{{cat.category}}" value="{{cat.category}}" id="{{cat.category}}">
+					<label for="{{cat.category}}">{{cat.category}}</label>
+				</div>
+				
+				{%endfor%}
+			</div>
+			<div id="languagefil">
+				<div>
+					<p>Languages:</p>
+				</div>
+				<div>
+					<input class="language" type="checkbox" name="all" value="all" id="allcat">
+					<label for="All">All</label>
+				</div>
+				{% for language in languages %}
+				<div>
+					<input class="language" type="checkbox" name="{{language.language}}" value="{{language.language}}"id="{{language.language}}">
+					<label for="{{language.language}}">{{language.language}}</label>
+				</div>
+				
+				{%endfor%}
+			</div>
+			<div>
+				<button id="filterbtn">Filter</button>
+			</div>
+					
 	</section>
 	<section class="table">
 	<table>
@@ -70,6 +114,30 @@
 	</table>
 		
 	</section>
+	<div class="pagination">
+		<span class="step-links">
+			{% if all_movies.has_previous %}
+				<a href="?page=1">&laquo; first</a>
+				<a href="?page={{ all_movies.previous_page_number }}">previous</a>
+			{% endif %}
+	
+			<!-- <span class="current">
+				Page {{ all_movies.number }} of {{ all_movies.paginator.num_pages }}.
+			</span> -->
+			{% for i in all_movies.paginator.page_range %}
+			{% if all_movies.number == i %}
+			  <button class="active"><span>{{ i }} <!---<span class="sr-only">(current)</span>----></span></button>
+			{% else %}
+			  <button><a href="?page={{ i }}">{{ i }}</a></button>
+			{% endif %}
+		  {% endfor %}
+	
+			{% if all_movies.has_next %}
+				<a href="?page={{ all_movies.next_page_number }}">next</a>
+				<a href="?page={{ all_movies.paginator.num_pages }}">last &raquo;</a>
+			{% endif %}
+		</span>
+	</div>
 </main>
 <script src="/static/js/allmovies.js"></script>
 {% endblock %}
