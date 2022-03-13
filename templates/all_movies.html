@@ -1,45 +1,34 @@
 {% extends 'base.html' %}
 
 {% block stylesheet %} <link rel="stylesheet" type="text/css" href="/static/css/allmovies.css">{%endblock%}
-
+{%block googlefonts %} <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play&family=Supermercado+One&family=Dosis:wght@300&display=swap" rel="stylesheet">{%endblock%}
 {% block pagetitle %} 
 
-	ALL CINEMA
+	HTC-All Cinema
 
 {% endblock %}
 {% block pageheading %} 
 
-	ALL CINEMA
+	All Cinema
 
 {% endblock %}
 
 {% block content %}
 <main>
-	
-	<!-- <span class="export">
-		<form action="/export">
-			<label>Export as .csv File</label>
-			<input type='submit' value="Export">
-		</form>
-	</span> -->
 
-	<!-- <section>
+	<section id="sortandfiltersect">
+		<button id="filterdivopener">
+			Filter
+		</button>
 		<select name="sort" id="sort">
 			<option value="title">--Sort By--</option>
 			<option value="title">Title</option>
 			<option value="year">Year</option>
 			<option value="director">Director</option>
-			<option value="language">Language</option>
-			<option value="category">Category</option>
-			<option value="length">Length</option>
-			<option value="country">Country</option>			
+			<option value="length">Length</option>						
 		</select>
-	</section> -->
-	<section>
-		<button id="filterdivopener">
-			Filter
-		</button>
-		{%include "_sort.html" %}
 	</section>
 	<section id="filter">
 			<div id="catfil">
@@ -74,7 +63,7 @@
 				
 				{%endfor%}
 			</div>
-			<div>
+			<div id="filterbtndiv">
 				<button id="filterbtn">Filter</button>
 			</div>
 					
@@ -90,8 +79,8 @@
 			<th> Themes </th>
 			<th> Category </th>
 			<th> Length </th>
-			<th>Seasons</th>
-			<th>Episodes</th>
+			<!-- <th>Seasons</th>
+			<th>Episodes</th> -->
 			<th> Country </th>
 		</tr>
 	
@@ -106,8 +95,8 @@
 			<td>{{movie.themes.all|join:", "}}</td>
 			<td>{{movie.category.all|join:", "}}</td>
 			<td>{% if movie.length%} {{movie.length}} {% endif %}</td>
-			<td>{% if movie.seasons%}{{movie.seasons}} {% endif %}</td>
-			<td>{% if movie.episodes%}{{movie.episodes}}{% endif %}</td>		
+			<!-- <td>{% if movie.seasons%}{{movie.seasons}} {% endif %}</td>
+			<td>{% if movie.episodes%}{{movie.episodes}}{% endif %}</td>		 -->
 			<td>{{movie.country.all|join:", "}}</td>
 		</tr>
 		{% endfor %}
@@ -117,8 +106,8 @@
 	<div class="pagination">
 		<span class="step-links">
 			{% if all_movies.has_previous %}
-				<a href="?page=1">&laquo; first</a>
-				<a href="?page={{ all_movies.previous_page_number }}">previous</a>
+				<button class="page" id="firstpage" onclick="gotopage(1)">&laquo; first</button>
+				<button class="page" id="previouspage" onclick="gotopage('{{all_movies.previous_page_number}}')">previous</button>
 			{% endif %}
 	
 			<!-- <span class="current">
@@ -126,15 +115,15 @@
 			</span> -->
 			{% for i in all_movies.paginator.page_range %}
 			{% if all_movies.number == i %}
-			  <button class="active"><span>{{ i }} <!---<span class="sr-only">(current)</span>----></span></button>
+			  <button class="page" class="active"><span>{{ i }} <!---<span class="sr-only">(current)</span>----></span></button>
 			{% else %}
-			  <button><a href="?page={{ i }}">{{ i }}</a></button>
+			  <button class="page" class="pagenumber" onclick="gotopage('{{i}}')">{{ i }}</button>
 			{% endif %}
 		  {% endfor %}
 	
 			{% if all_movies.has_next %}
-				<a href="?page={{ all_movies.next_page_number }}">next</a>
-				<a href="?page={{ all_movies.paginator.num_pages }}">last &raquo;</a>
+				<button class="page" onclick="gotopage('{{ all_movies.next_page_number }}')">next</button>
+				<button class="page" onclick="gotopage('{{ all_movies.paginator.num_pages }}')">last &raquo;</button>
 			{% endif %}
 		</span>
 	</div>

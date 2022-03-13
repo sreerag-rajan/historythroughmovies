@@ -6,11 +6,18 @@ main{
 	width: 98%;
 	margin: auto;
 	margin-top: 20px;
+	margin-bottom: 50px;
 }
 p{
 	margin: 20px;
 	font-size: 18px;
 	text-align: justify;
+font-family: 'Sansita Swashed', cursive;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 header {
 	height: 200px;
@@ -22,11 +29,15 @@ header {
 	align-items: center;
 	box-sizing: border-box;
 }
+div{
+    font-family: 'Merienda', cursive;
+}
 
 header>h1{
-	font-size: 40px;
+	font-size: 60px;
 	color: aliceblue;
 	text-align: center;
+	font-family: 'Righteous', cursive;
 }
 
 nav{
@@ -41,6 +52,7 @@ nav{
 	background-color: #21D4FD;
 	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);	
 	border: 1px solid white;
+	
 	box-sizing: border-box;
 }
 nav>div>a{
@@ -53,4 +65,41 @@ nav>div>a:hover{
 	text-decoration: underline;
 	transition: all 200ms;
 
+}
+footer {
+	height: 50px;
+	width: 100%;
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing: border-box;
+	font-size: 1.5em;
+    color: white;
+}
+footer a{
+	color: white;
+	text-decoration: none;
+}
+
+@media screen and (max-width:1200px){
+    nav>div>a{
+		font-size: 18px;
+	}	
+}
+@media screen and (max-width:480px) {
+	header{
+		height: 150px;
+	}
+	header>h1{
+		font-size: 40px;
+	}
+	
+	nav>div>a{
+		font-size: 10px;
+	}	
+
+	footer{
+		font-size: 12px;
+	}
 }

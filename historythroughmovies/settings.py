@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies', 'pages', 'printingdata',
-    'suggestion'
+    'suggestion','specialModules','otherResources'
 ]
 
 MIDDLEWARE = [

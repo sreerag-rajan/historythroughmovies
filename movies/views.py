@@ -52,7 +52,7 @@ def movies_all(request):
 		queryset = Movies.objects.all().filter(category__in=categoryfilter).filter(language__in=languagefilter).distinct().order_by(sort)	
 
 	#Pagination			
-	paginator = Paginator(queryset,15)
+	paginator = Paginator(queryset,20)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
 	context = {
@@ -98,7 +98,7 @@ def themes_view_individual(request, theme):
 	# queryset1 = MovieTheme.objects.all().filter(theme = theme).order_by('theme')
 
 	themeObj = Theme.objects.get(slug = theme)
-	queryset1 = MovieTheme.objects.all().filter(theme = themeObj.theme).order_by('theme')
+	queryset1 = MovieTheme.objects.all().filter(theme = themeObj.theme).order_by('movie')
 	context = {
 		'eachtheme': themeObj,
 		'Movies': queryset1,		

@@ -1,0 +1,66 @@
+header{
+	background-image: radial-gradient( circle 759px at -6.7% 50%,  rgba(80,131,73,1) 0%, rgba(140,209,131,1) 26.2%, rgba(178,231,170,1) 50.6%, rgba(144,213,135,1) 74.1%, rgba(75,118,69,1) 100.3% );
+}
+nav{
+    background-image: radial-gradient( circle 759px at -6.7% 50%,  rgba(80,131,73,1) 0%, rgba(140,209,131,1) 26.2%, rgba(178,231,170,1) 50.6%, rgba(144,213,135,1) 74.1%, rgba(75,118,69,1) 100.3% );
+}
+footer{
+	background-image: radial-gradient( circle 759px at -6.7% 50%,  rgba(80,131,73,1) 0%, rgba(140,209,131,1) 26.2%, rgba(178,231,170,1) 50.6%, rgba(144,213,135,1) 74.1%, rgba(75,118,69,1) 100.3% );
+    
+}
+#text{
+    width: 80%;
+    margin: auto;
+    border: 1px solid rgb(18, 75, 18);
+    padding: 40px;
+}
+ p{
+    font-size: 22px;
+}
+#red{
+    color: red;
+    font-size: 18px;
+}
+
+#suggestionform{
+   padding: 20px 40px;
+   display: flex;
+   justify-content: center;
+}
+table{
+    border: 1px solid black;
+    width: 500px;
+}
+th,td{
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+th{
+    width: 20%;
+}
+
+input{
+    height: 20px;
+    width: 100%;
+}
+input[type="submit"]{
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    height: 40px;
+    background-image: radial-gradient( circle 759px at -6.7% 50%,  rgba(80,131,73,1) 0%, rgba(140,209,131,1) 26.2%, rgba(178,231,170,1) 50.6%, rgba(144,213,135,1) 74.1%, rgba(75,118,69,1) 100.3% );
+}
+
+@media screen and (max-width:480px) {
+    p{
+        font-size: 16px;
+    }
+    #red{
+        font-size: 14px;
+    }
+    table{
+        width: 300px;
+    }
+    
+}

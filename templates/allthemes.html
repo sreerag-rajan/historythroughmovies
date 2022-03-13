@@ -2,23 +2,26 @@
 {% block stylesheet%} <link rel="stylesheet" href="/static/css/alltheme.css"> {%endblock%}
 
 {% block pagetitle %} ALL THEMES {%endblock%}
+{%block googlefonts %}<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">{%endblock%}
 {% block pageheading %} Themes {%endblock%}
 {% block content %}
 
 
 
 <main>
-	<div class="alltheme">
+	<section class="alltheme">
 		{% for theme in allthemes %}
-		<div class="theme">
-		<a href=theme_{{theme.slug}}>
-			
-				<h2>{{theme.theme}}</h2>
-			
-		</a>
-	</div>
+		<div>
+			<a href=theme_{{theme.slug}}>	
+				<div class="theme">						
+					<h2>{{theme.theme}}</h2>
+				</div>
+			</a>
+		</div>		
 		{% endfor %}
-	</div>
+	</section>
 </main>
 
 

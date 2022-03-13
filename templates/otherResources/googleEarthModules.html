@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
-{%block stylesheet%} <link rel="stylesheet" href="/static/css/googleEarthModules.css"> {%endblock%}
+{%block stylesheet%} <link rel="stylesheet" href="/static/css/otherResources/googleEarthModules.css"> {%endblock%}
 {%block pagetitle%}Google Earth Modules{%endblock%}
 {%block pageheading%}Google Earth Modules{%endblock%}
-{% block content}
 
+{% block content%}
+
+<main>
+    {%for mod in modules%}
+    <a href="{{mod.url}}">
+        <div class="module">
+            <div> <h2>{{mod.moduleName}}</h2> </div>
+            <div><p>{{mod.shortDescription}}</p></div>
+        </div>
+    </a>
+
+    {%endfor%}
+</main>
 {% endblock %}

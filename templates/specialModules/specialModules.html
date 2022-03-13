@@ -1,9 +1,21 @@
 {% extends 'base.html'%}
-<!-- {% block stylesheet%} <link rel="stylesheet" href="/static/css/alltheme.css"> {%endblock%} -->
+{% block stylesheet%} <link rel="stylesheet" href="/static/css/specialModules/specialModules.css"> {%endblock%}
 
 {% block pagetitle %} Special Modules  {%endblock%}
 {% block pageheading %} Special Modules {%endblock%}
 
 {% block content %}
+<main>
+    {%for mod in modules %}
+    <a href="{{mod.slug}}/">
+        <div class="module">
+            <h2>{{mod.moduleName}}</h2>
+
+        </div>
+    </a>
+    {%endfor%}
+</main>
+
+
 
 {%endblock%}

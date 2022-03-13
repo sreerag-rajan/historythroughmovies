@@ -8,11 +8,7 @@ class Suggestionform(forms.ModelForm):
 			'title',
 			'year',
 			'director',
-			'language',
 			'theme',
-			'category',
-			'lenght',
-			'time_period',
+			'category',			
 			'country'
-
 		]

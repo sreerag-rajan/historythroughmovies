@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from movies.models import Theme
 from movies.views import movies_all, movies_countries, themes_all, themes_view_individual, movie_detail
-from pages.views import home_view, about_view, country_view
+from pages.views import home_view, about_view, country_view, contact_view
 from printingdata.views import printing_csv
 from suggestion.views import suggestion_create_view
 from specialModules.urls import smurlpatterns
@@ -39,6 +39,7 @@ urlpatterns = [
     path('suggestion/', suggestion_create_view),
     path('movie-<str:movie>/', movie_detail),
     path('about/', about_view, name='about'),
+    path('contact-us/', contact_view),
     path('countries/', country_view),
     path('special-modules/', include(smurlpatterns)),
     path('other-resources/', include(orurlpatterns)),

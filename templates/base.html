@@ -2,21 +2,15 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="/static/css/style.css">
-	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Aclonica&family=Handlee&family=Orbitron:wght@900&family=Righteous&display=swap"
-		rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&family=Righteous&family=Sansita+Swashed&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/static/css/style.css">
 	{% block stylesheet %} {% endblock %}
+	{%block googlefonts %} {%endblock%}
 
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% block pagetitle %} {% endblock %}</title>
 </head>
 
@@ -51,7 +45,18 @@
 	{% block content %} {% endblock %}
 
 
-
+	<footer>
+		<div>
+			<a href="/about">About Us</a>
+		</div>
+		<div>
+			<a href="/contact-us"> Contact Us </a>
+		</div>
+		<div>
+			<a href="/suggestion">Suggest Us Movies!</a>
+			
+		</div>
+	</footer>
 </body>
 
 </html>

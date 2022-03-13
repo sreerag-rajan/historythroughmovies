@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Moon+Dance&family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/index.css">
     <title>History Through Cinema</title>
 </head>
@@ -13,7 +15,7 @@
     </header>
     <main>
         <section id="hometext">
-            <p> History can be fascinating to many people, while boring to others. It is usually associated with long books,
+            <!-- <p> History can be fascinating to many people, while boring to others. It is usually associated with long books,
                 often reminding us of school textbooks, filled with facts and dates, and this acts as a detterent. Yet there
                 are other ways to learning and knowing about the past. The visual medium is one of the most powerful tools
                 for this task. Visual medium for history does not mean documentaries alone. They are good for the purpose,
@@ -25,7 +27,8 @@
                 cut throat competition to outmatch each others weapons and technological might, in the hopes to crush the
                 enemy completely. However, that is not the sort of movies we had in mind for the list here as we prefer
                 those a bit more grounded in reality. Thus, be warned, there is subjectivity at play in the selection of the
-                movies. </p>
+                movies. </p> -->
+                <p id="shorttext">Let us explore History through the visual medium. <br> Let us see History Through Cinema!!</p>
     
         </section>
         <section id="midsec">
@@ -56,7 +59,7 @@
                     
                 </div>
                 <div >
-                    <img id="postercarasoul" src="http://127.0.0.1:8000/media/posters/Agantuk.jpg" alt="filmposter">                    
+                    <img id="postercarasoul" src="{{recentThemePosters.0.posterUrl}}" alt="filmposter">                    
                 </div>
             </div>
             <div id="workingon">
@@ -80,7 +83,18 @@
         </section>
         
     </main>
-    <footer></footer>
+    <footer>
+		<div>
+			<a href="/about">About Us</a>
+		</div>
+		<div>
+			<a href="/contact-us"> Contact Us </a>
+		</div>
+		<div>
+			<a href="/suggestion">Suggest Us Movies!</a>
+			
+		</div>
+	</footer>
 </body>
 </html>
 <script>

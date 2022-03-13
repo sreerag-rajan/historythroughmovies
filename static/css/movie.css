@@ -6,7 +6,10 @@ nav{
     background-color: transparent;
     background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
-
+footer{
+    background-color: transparent;
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}
 main{
     width: 100%;
 }
@@ -33,16 +36,23 @@ p{
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-#movietext>iframe{
+/* #movietext>iframe{
     margin: 20px;
     margin-left: 25%
     
-}
+} */
 td,th{
     border: 1px solid black;
     text-align: center;
     padding: 30px;
+    
 }
 img{
     width: 400px;
+}
+.flexcenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
