@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Moon+Dance&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <title>History Through Cinema</title>
+</head>
+<body>
+    <header>
+        <h1>HISTORY THROUGH CINEMA</h1>
+    </header>
+    <main>
+        <section id="hometext">
+            <!-- <p> History can be fascinating to many people, while boring to others. It is usually associated with long books,
+                often reminding us of school textbooks, filled with facts and dates, and this acts as a detterent. Yet there
+                are other ways to learning and knowing about the past. The visual medium is one of the most powerful tools
+                for this task. Visual medium for history does not mean documentaries alone. They are good for the purpose,
+                but even normal movies can give a glimpse of the past through their portrayal of historical events,
+                socieites, classes etc. Even a work of fiction set in a particular time period can give the social attitude
+                of the people at the time, and this can prove valuable. Now we understand that this is a slippery slope. By
+                this logic even Marvel's Captain America: The First Avenger can have historical essence. Its a movie that is
+                set during the World War II and portrays the conflict between the allied and the axis powers as well as the
+                cut throat competition to outmatch each others weapons and technological might, in the hopes to crush the
+                enemy completely. However, that is not the sort of movies we had in mind for the list here as we prefer
+                those a bit more grounded in reality. Thus, be warned, there is subjectivity at play in the selection of the
+                movies. </p> -->
+                <p id="shorttext">Let us explore History through the visual medium. <br> Let us see History Through Cinema!!</p>
+    
+        </section>
+        <section id="midsec">
+            <div id="Squares4">
+                <div class="sq4" id="themes">Themes</div>
+                <div class="sq4" id="countries">Countries</div>
+                <div class="sq4" id="specialModules">Special Modules</div>
+                <div class="sq4" id="otherResources">Other Resources</div>
+            </div>
+            <div id="allmovies">See All</div>
+        </section>
+        <section id="lowmidsec">
+            <div id="recent">
+                <div>
+                    <h3>Recently Added:</h3>
+                </div>
+                <div id="recentmid">
+                    <div id="rt1">
+                        {%for t in recentTheme%}
+                        <h3>{{t.name}}</h3>
+                        {%endfor%}
+                    </div>
+                    <div id="rt2">
+                        {%for rt in recentThemePosters%}
+                        <div>{{rt.movieName}}</div>
+                        {%endfor%}
+                    </div>
+                    
+                </div>
+                <div >
+                    <img id="postercarasoul" src="{{recentThemePosters.0.posterUrl}}" alt="filmposter">                    
+                </div>
+            </div>
+            <div id="workingon">
+                <div id="wo1">
+                    <div>
+                        <h3>Current Theme:</h3>
+                    </div>
+                    <div>
+                        {%for theme in nextTheme %}
+                        <h3><u> {{theme.name}} </u></h3>
+                        {%endfor%}
+                    </div>
+                </div>
+                <div id="wo2">
+                    {%for theme in nextThemeMovies%}
+                    <div>{{theme.movieName}}</div>
+                    {%endfor%}
+                </div>
+                
+            </div>
+        </section>
+        
+    </main>
+    <footer>
+		<div>
+			<a href="/about">About Us</a>
+		</div>
+		<div>
+			<a href="/contact-us"> Contact Us </a>
+		</div>
+		<div>
+			<a href="/suggestion">Suggest Us Movies!</a>
+			
+		</div>
+	</footer>
+</body>
+</html>
+<script>
+    const posterarr = []
+    "{%for poster in recentThemePosters %}"
+        posterarr.push("{{poster.posterUrl}}")
+        "{%endfor%}"
+</script>
+<script src="/static/js/index.js"></script>
+
+

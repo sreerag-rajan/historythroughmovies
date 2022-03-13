@@ -1,0 +1,103 @@
+/* svg:hover{
+    color:red;
+} */
+header{
+	background-color: transparent;
+	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+nav{
+	background-color: transparent;
+	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+footer{
+	background-color: transparent;
+	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+#map{
+	/* fill: #00394f;
+	stroke: #eee;
+	stroke-width: .25; */
+	margin-top: 5%;
+
+}
+map:hover{
+	background-color: black;
+}
+svg path{
+	fill: #00212c;
+}
+svg a>path{
+	fill: #256179;
+}
+
+
+svg a>path:hover{
+	fill: #9f8ee0;
+	background-color: #c8d0e7;
+	transition: 400ms;
+	cursor: pointer;
+}
+svg path.visited{
+	fill: #00394f;
+}
+#nocountry{
+	
+	display: flex;
+	justify-content: center;
+}
+#nocountry a{
+	font-size: 22px;
+	text-decoration: none;
+	
+	color: white;	
+}
+#nocountry div{
+	width: fit-content;
+	margin: auto;
+	background-color: #0093E9;
+	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+	padding: 20px;	
+}
+
+
+
+#nocountry{
+    margin: 40px;
+    text-align: center;
+
+}
+
+.countrylistcontainer{
+	display: grid;
+	grid-template-columns: repeat(5,1fr);
+	grid-gap: 30px;
+	justify-content: space-around;
+	margin: 40px;
+	text-align: center;
+	font-size: 25px;
+}
+.country{
+	padding: 20px;
+	background-color: #0093E9;
+	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+	color: white;
+	transition: all 300ms;
+}
+.country:hover{
+	cursor: pointer;
+	background-color: #0093E9;
+	background-image: linear-gradient(320deg, #0093E9 0%, #80D0C7 100%);
+
+}
+.countrylistcontainer a{
+	text-decoration: none;
+}
+@media screen and (max-width:480px){
+	.countrylistcontainer{
+		grid-template-columns: repeat(2,1fr);
+	}	
+	nav>div>a{
+		font-size: 10px;
+	}
+}
+

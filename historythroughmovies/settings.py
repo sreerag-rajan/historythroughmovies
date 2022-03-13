@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6+j%l2sx$$ofd7j69$1*5f0#=(y0a)n@gowukko%-&lj6&mr3e'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies', 'pages', 'printingdata',
-    'suggestion'
+    'suggestion','specialModules','otherResources'
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'historythroughmovies.wsgi.application'
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -88,9 +93,9 @@ WSGI_APPLICATION = 'historythroughmovies.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'htm',
+        'NAME': 'htc',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': os.getenv('MYSQL_DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '3306',
     }

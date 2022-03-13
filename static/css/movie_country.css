@@ -1,0 +1,132 @@
+header{
+    background-color: transparent;
+	background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+}
+nav{
+    background-color: transparent;
+	background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+}
+footer{
+    background-color: transparent;
+	background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+}
+/* body{
+    width: 100%;
+    box-sizing: border-box;
+}
+main{
+    width: 90%;
+    box-sizing: border-box;
+} */
+
+
+.movies{
+    width: 98%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 400px;
+    grid-gap: 80px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    align-items: top;
+    box-sizing: border-box;
+    vertical-align: top;
+    
+}
+.movies img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}
+.movies a{
+    text-decoration: none;
+}
+main{
+    margin-top: 40px;
+}
+.movie{
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    border-radius: 10px;
+    
+    
+}
+.details{
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
+    /* background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%); */
+    background-image: linear-gradient( 64.5deg,  rgba(245,116,185,1) 14.7%, rgba(89,97,223,1) 88.7% );
+    border-radius: 0 10px 10px 0;
+}
+
+
+table{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    
+    border-radius: 20px;
+    padding: 10px;
+}
+#posterrow, #titlerow{
+    text-align: center;
+}
+#titlerow{
+    font-size: 22px;
+}
+tr>td:nth-child(1){
+    width: fit-content
+}
+tr>td:nth-child(2){
+    text-align: left;
+}
+th,td{
+    /* border: 1px solid black; */
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 20px;
+}
+.movie a{
+    color: antiquewhite;
+    font-size: 22px;
+    text-shadow: 2px 1px #000000;
+    text-decoration: underline;
+}
+
+@media screen and (max-width:1200px) {
+    .movies{
+        display: block;
+    }
+    .movie{
+        margin-top: 20px;
+    }
+    
+}
+
+@media screen and (max-width:480px) {
+    .movies{
+        display: block;
+    }
+    .movie{
+        margin: 20px 0;
+        grid-template-columns: 75%;
+        justify-content: center;
+        grid-template-rows: auto auto;
+    }
+    .movies img{
+        border-radius: 10px 10px 0 0 ;
+    }
+    .details{
+        border-radius: 0 0 10px 10px;
+    }
+    
+}

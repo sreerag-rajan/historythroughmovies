@@ -1,49 +1,77 @@
 {% extends 'base.html' %}
 
+{% block stylesheet %} <link rel="stylesheet" type="text/css" href="/static/css/allmovies.css">{%endblock%}
+{%block googlefonts %} <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play&family=Supermercado+One&family=Dosis:wght@300&display=swap" rel="stylesheet">{%endblock%}
+{% block pagetitle %} 
+
+	HTC-All Cinema
+
+{% endblock %}
+{% block pageheading %} 
+
+	All Cinema
+
+{% endblock %}
 
 {% block content %}
 <main>
-	<h2> All Movies </h2>
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
-	<!-- <span class="export">
-		<form action="/export">
-			<label>Export as .csv File</label>
-			<input type='submit' value="Export">
-		</form>
-	</span> -->
 
-	<section>
-		<p>
-		<form action="/allmovies/title">
-			<input type="submit" value="Order by Title">
-		</form>
-		<form action="/allmovies/year">
-			<input type="submit" value="Order by Year">
-		</form>
-
-		<form action="/allmovies/director">
-			<input type="submit" value="Order by Director">
-		</form>
-		<form action="/allmovies/language">
-			<input type="submit" value="Order by Language">
-		</form>
-		<form action="/allmovies/category">
-			<input type="submit" value="Order by Category">
-		</form>
-		<form action="/allmovies/lenght">
-			<input type="submit" value="Order by Length">
-		</form>
-		<form action="/allmovies/country">
-			<input type="submit" value="Order by Country">
-		</form>
-		</p>
+	<section id="sortandfiltersect">
+		<button id="filterdivopener">
+			Filter
+		</button>
+		<select name="sort" id="sort">
+			<option value="title">--Sort By--</option>
+			<option value="title">Title</option>
+			<option value="year">Year</option>
+			<option value="director">Director</option>
+			<option value="length">Length</option>						
+		</select>
 	</section>
-
-
-
-	
-		<!-- <tr>
-
+	<section id="filter">
+			<div id="catfil">
+				<div>
+					<p>Categories:</p>
+				</div>
+				<div>
+					<input class="category" type="checkbox" name="all" value="all" id="allcat">
+					<label for="All">All</label>
+				</div>
+				{% for cat in categories %}
+				<div>
+					<input class="category" type="checkbox" name="{{cat.category}}" value="{{cat.category}}" id="{{cat.category}}">
+					<label for="{{cat.category}}">{{cat.category}}</label>
+				</div>
+				
+				{%endfor%}
+			</div>
+			<div id="languagefil">
+				<div>
+					<p>Languages:</p>
+				</div>
+				<div>
+					<input class="language" type="checkbox" name="all" value="all" id="allcat">
+					<label for="All">All</label>
+				</div>
+				{% for language in languages %}
+				<div>
+					<input class="language" type="checkbox" name="{{language.language}}" value="{{language.language}}"id="{{language.language}}">
+					<label for="{{language.language}}">{{language.language}}</label>
+				</div>
+				
+				{%endfor%}
+			</div>
+			<div id="filterbtndiv">
+				<button id="filterbtn">Filter</button>
+			</div>
+					
+	</section>
+	<section class="table">
+	<table>
+		<tr>
+			<th> </th>
 			<th> Title </th>
 			<th> Year </th>
 			<th> Director </th>
@@ -51,24 +79,54 @@
 			<th> Themes </th>
 			<th> Category </th>
 			<th> Length </th>
-			<th> Time Period </th>
+			<!-- <th>Seasons</th>
+			<th>Episodes</th> -->
 			<th> Country </th>
-		</tr> -->
-	<section class="table">
+		</tr>
+	
 		{% for movie in all_movies %}
-		<table>
-		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
-		<tr><td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td></tr>
-		<tr>	<td>{{movie.year}}</td></tr>
-		<tr>	<td>{{movie.director.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.language.all|join:", "}}</td><tr>
-		<tr>	<td>{{movie.theme.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.category.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.lenght}}</td></tr>
-		<tr>	<td>{{movie.time_period.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.country.all|join:", "}}</td></tr>
-		</table>
+		
+		<tr> 
+			<td><img src="{{movie.poster.url}}" alt="film Poster"></td>	
+			<td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td>
+			<td>{{movie.year}}</td>
+			<td>{{movie.director.all|join:", "}}</td>
+			<td>{{movie.language.all|join:", "}}</td>
+			<td>{{movie.themes.all|join:", "}}</td>
+			<td>{{movie.category.all|join:", "}}</td>
+			<td>{% if movie.length%} {{movie.length}} {% endif %}</td>
+			<!-- <td>{% if movie.seasons%}{{movie.seasons}} {% endif %}</td>
+			<td>{% if movie.episodes%}{{movie.episodes}}{% endif %}</td>		 -->
+			<td>{{movie.country.all|join:", "}}</td>
+		</tr>
 		{% endfor %}
+	</table>
+		
 	</section>
+	<div class="pagination">
+		<span class="step-links">
+			{% if all_movies.has_previous %}
+				<button class="page" id="firstpage" onclick="gotopage(1)">&laquo; first</button>
+				<button class="page" id="previouspage" onclick="gotopage('{{all_movies.previous_page_number}}')">previous</button>
+			{% endif %}
+	
+			<!-- <span class="current">
+				Page {{ all_movies.number }} of {{ all_movies.paginator.num_pages }}.
+			</span> -->
+			{% for i in all_movies.paginator.page_range %}
+			{% if all_movies.number == i %}
+			  <button class="page" class="active"><span>{{ i }} <!---<span class="sr-only">(current)</span>----></span></button>
+			{% else %}
+			  <button class="page" class="pagenumber" onclick="gotopage('{{i}}')">{{ i }}</button>
+			{% endif %}
+		  {% endfor %}
+	
+			{% if all_movies.has_next %}
+				<button class="page" onclick="gotopage('{{ all_movies.next_page_number }}')">next</button>
+				<button class="page" onclick="gotopage('{{ all_movies.paginator.num_pages }}')">last &raquo;</button>
+			{% endif %}
+		</span>
+	</div>
 </main>
+<script src="/static/js/allmovies.js"></script>
 {% endblock %}

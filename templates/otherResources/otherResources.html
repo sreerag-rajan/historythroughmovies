@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% block stylesheet %} <link rel="stylesheet" type="text/css" href="/static/css/otherResources/otherResources.css">{%endblock%}
+
+{% block pagetitle %} Other Resources {% endblock %}
+{% block pageheading %} Other Resources {% endblock %}
+
+{%block content %}
+
+<main>
+    <a href="googleEarthModules">
+        <section class="module" id="googleearth">
+            <div class="img">              
+                <img src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/dc4fbd86-a0a6-47ce-a4c9-7c213eee471f" alt="googleEarth">
+            </div>
+            <div>
+                <h3>Google Earth Modules</h3>
+            </div>
+        </section>
+    </a>
+    <a href="https://sites.google.com/view/readings-on-history/home">
+    <section class="module" id="readingsonhistory">
+        <div class="img">
+            <img src="https://media.newyorker.com/photos/59ee325f1685003c9c28c4ad/1:1/w_3744,h_3744,c_limit/Heller-Kirkus-Reviews.jpg" alt=""/>
+        </div>
+        <div>
+            <h3>Readings on History</h3>
+        </div>
+    </section>
+    </a>
+</main>
+
+{%endblock%}

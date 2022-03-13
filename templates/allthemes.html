@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
+{% block stylesheet%} <link rel="stylesheet" href="/static/css/alltheme.css"> {%endblock%}
 
+{% block pagetitle %} ALL THEMES {%endblock%}
+{%block googlefonts %}<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">{%endblock%}
+{% block pageheading %} Themes {%endblock%}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/static/style.css">
 
-<h2>ALL THEMES</h2>
 
-<ul class="alltheme">
-	{% for theme in allthemes %}
-	<a href=theme_{{theme.slug}}>
-		<li>{{theme.theme}}</li>
-	</a>
-	{% endfor %}
-</ul>
+
+<main>
+	<section class="alltheme">
+		{% for theme in allthemes %}
+		<div>
+			<a href=theme_{{theme.slug}}>	
+				<div class="theme">						
+					<h2>{{theme.theme}}</h2>
+				</div>
+			</a>
+		</div>		
+		{% endfor %}
+	</section>
+</main>
+
+
 
 {% endblock %}

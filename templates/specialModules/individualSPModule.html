@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block stylesheet%} <link rel="stylesheet" href="\static\css\specialModules\individualSPModule.css"> {%endblock%}
+
+{% block pagetitle %} HTC-{{module.moduleName}} {%endblock%}
+{% block pageheading %} {{module.moduleName}} {%endblock%}
+
+{% block content %}
+<main>
+    {%autoescape off %}
+    {{module.body}}
+    {%endautoescape%}
+</main>
+
+
+
+{%endblock%}

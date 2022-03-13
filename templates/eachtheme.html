@@ -1,29 +1,33 @@
 {% extends 'base.html' %}
-
+{%block stylesheet%} <link rel="stylesheet" href="/static/css/eachtheme.css"> {%endblock%}
+{%block pagetitle%}{{ eachtheme|capfirst }}{%endblock%}
+{%block pageheading%}{{ eachtheme.theme.upper }}{%endblock%}
 {% block content %}
 <main>
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
 	<section>
-		<h2> {{ eachtheme.theme.upper }}</h2>
 
 		<p> {{ eachtheme.description }}</p>
 	</section>
+	<!-- <section>
+		{%include "_sort.html" %}
+	</section> -->	
 	
-	<section class= 'table'>
+	<section id="sc2">
 		{% for movie in Movies %}
-		<table class='table'>
-		<tr> <td><img src="{{movie.poster.url}}" alt="film Poster"></td></tr>	
-		<tr><td><a href="/movie-{{movie.slug}}">{{movie.title}}</a></td></tr>
-		<tr>	<td>{{movie.year}}</td></tr>
-		<tr>	<td>{{movie.director.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.language.all|join:", "}}</td><tr>
-		<tr>	<td>{{movie.theme.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.category.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.lenght}}</td></tr>
-		<tr>	<td>{{movie.time_period.all|join:", "}}</td></tr>
-		<tr>	<td>{{movie.country.all|join:", "}}</td></tr>
-		</table>
+		<div class='movie'>
+			<div class="img">
+				<a href="/movie-{{movie.movie.slug}}">
+					<img src="{{movie.movie.poster.url}}" alt="film Poster"/>
+				</a>
+			</div>
+			<div class="title">
+				<h3>{{movie.movie}}</h3>
+			</div>
+			<div class="desc">{{movie.text|safe}}</div>	
+		</div>
 		{% endfor %}
+
 	</section>
 </main>
 {% endblock %}

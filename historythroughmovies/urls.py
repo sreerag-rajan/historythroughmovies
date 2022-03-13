@@ -14,14 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from movies.models import Theme
-from movies.views import movies_all, movies_countries, themes_all, themes_view_individual, timeperiod_all, timeperiod_individual, movie_detail
-from pages.views import home_view, about_view, country_view
+from movies.views import movies_all, movies_countries, themes_all, themes_view_individual, movie_detail
+from pages.views import home_view, about_view, country_view, contact_view
 from printingdata.views import printing_csv
 from suggestion.views import suggestion_create_view
+from specialModules.urls import smurlpatterns
+from otherResources.urls import orurlpatterns
+
 
 
 urlpatterns = [
@@ -29,16 +32,17 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('allmovies/', movies_all, name='all movies'),
     path('movies_set_in_<str:country>/', movies_countries),
-    path('allmovies/<str:sort>/', movies_all),
+    # path('allmovies/<str:sort>/', movies_all),
     path('themes/', themes_all, name='Themes'),
     path('themes/theme_<str:theme>/', themes_view_individual),
     path('export', printing_csv),
     path('suggestion/', suggestion_create_view),
-    path('historica_cinematica/', timeperiod_all, name='Time Periods'),
-    path('time_period/<str:timeperiod>/', timeperiod_individual),
     path('movie-<str:movie>/', movie_detail),
     path('about/', about_view, name='about'),
+    path('contact-us/', contact_view),
     path('countries/', country_view),
+    path('special-modules/', include(smurlpatterns)),
+    path('other-resources/', include(orurlpatterns)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,58 +1,75 @@
 {% extends 'base.html' %}
+{%block stylesheet%} <link rel="stylesheet" href="/static/css/movie.css"> {%endblock%}
+{%block pagetitle%}{{ Movie.title }}{%endblock%}
+
+
+{%block pageheading%}{{ Movie.title }}{%endblock%}
 
 {% block content%}
 <main id="moviepage">
-    <h2 id="movietitle">{{Movie.title}}</h2>
 
     <div>
-    <section id="movieinfo">
+        <section id="movieinfo">
 
-        <table class="movietable">
-            <tr>
-                <th>YEAR OF RELEASE</th>
-                <td>{{Movie.year}}</td>
-            </tr>
-            <tr>
-                <th>DIRECTOR</th>
-                <td>{{Movie.director.all|join:", "}}</td>
-            </tr>
-            <tr>
-                <th>LANGUAGE</th>
-                <td>{{Movie.language.all|join:", "}}</td>
-            </tr>
-            <tr>
-                <th>THEMES</th>
-                <td>{{Movie.theme.all|join:", "}}</td>
-            </tr>
-            <tr>
-                <th>CATEGORY</th>
-                <td>{{Movie.category.all|join:", "}}</td>
-            </tr>
-            <tr>
-                <th>LENGTH</th>
-                <td>{{Movie.lenght}}</td>
-            </tr>
-            <tr>
-                <th>TIME PERIOD</th>
-                <td>{{Movie.time_period.all|join:", "}}</td>
-            </tr>
-            <tr>
-                <th>COUNTRY(S)</th>
-                <td>{{Movie.country.all|join:", "}}</td>
-            </tr>
-        </table>
-    </section>
-    <section id="poster">
-        <img src="{{Movie.poster.url}}" alt="film Poster">
-    </section>
-</div>
+            <table class="movietable">
+                <tr>
+                    <th>DIRECTOR</th>
+                    <td>{{Movie.director.all|join:", "}}</td>
+                </tr>
+                <tr>
+                    <th>YEAR OF RELEASE</th>
+                    <td>{{Movie.year}}</td>
+                </tr>
+                
+                <tr>
+                    <th>LANGUAGE</th>
+                    <td>{{Movie.language.all|join:", "}}</td>
+                </tr>
+                <tr>
+                    <th>THEMES</th>
+                    <!-- <td>{{Movie.theme.all|join:", "}}</td> -->
+                    <td>
+                        {%for theme in Themes%}
+                        <a href="/themes/theme_{{theme.theme.slug}}">{{theme.theme}}</a>
+                        {%endfor%}
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>CATEGORY</th>
+                    <td>{{Movie.category.all|join:", "}}</td>
+                </tr>
+                {% if Movie.length %}
+                <tr>
+                    <th>LENGTH</th>
+                    <td>{{Movie.length}}</td>
+                </tr>
+                {% endif %}
+                {% if Movie.seasons %}
+                <tr>
+                    <th>SEASONS</th>
+                    <td>{{Movie.seasons}}</td>
+                </tr>
+                {% endif %}
+                {% if Movie.episodes %}
+                <tr>
+                    <th>LENGTH</th>
+                    <td>{{Movie.episodes}}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th>COUNTRY(S)</th>
+                    <td>{{Movie.country.all|join:", "}}</td>
+                </tr>
+            </table>
+        </section>
+        <section id="poster">
+            <img src="{{Movie.poster.url}}" alt="film Poster">
+        </section>
+    </div>
 
     <section id="movietext">
-        <p>{{Movie.para1}}</p>
-        <p>{{Movie.para2}}</p>
-        <p>{{Movie.para3}}</p>
-        <p>{{Movie.para4}}</p>
-        <p>{{Movie.para5}}</p>
+        <p>{{Movie.description|safe}}</p>
 
     </section>
 </main>
