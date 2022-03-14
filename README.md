@@ -21,5 +21,26 @@ _We are considering changing the name to History Through Cinema, as that feels a
 - Pyhton's Django Framework
 - Dependencies can be found within requirements.txt
 
+## Getting Started
+Install all dependencies from requirements.txt (You can create a virtualenv)
+
+`pip install -r requirements.txt`
+
+### Run Django
+
+Make Migrations:
+
+`python manage.py makemigrations`
+
+`python manage.py migrate`
+
+Run Server:
+
+`python manage.py runserver`
+
+It will run locally on port 8000
+
+
+
 ## Development
 While the project has more members, the website responsibility(building and deploying), so far, has been solely mine.
