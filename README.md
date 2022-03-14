@@ -2,6 +2,8 @@
 
 This website is the public arm of the parent project which is purposed to explore whether the visual media, particularly forms of cinema, can be inculcated into the pedagogy of History. Can they be used to enhance one's understanding of a particular theme or event. The primary objective of the project is to find such movies and understand how they portray the incident or event, with how much accuracy and how this can be used to explain the event itself in a teaching setting.
 
+![Landing Page](/htclandingpage.png)
+
 The website is inteded to show our results.
 
 [Website Link](https://historythroughmovies.pythonanywhere.com)
